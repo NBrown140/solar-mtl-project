@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>Display a map</title>
+  <title>Solar MTL</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
@@ -16,11 +16,92 @@
 <div id='map'></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibmJyb3duMTQwIiwiYSI6ImNpeW9vNWt0MjAwNHYzM3FxZG1yaWdkdHkifQ.wgBlLBAl_ocIhssjRsvCEg';
-const map = new mapboxgl.Map({
+var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/nbrown140/cjjixunru3cg52spinroqkhpj',
   center: [-73.671738, 45.556095],
   zoom: 10.5
+});
+  
+map.on('load', function() {
+  map.addSource("buildings",{
+    "type": "geojson",
+    "data": "mapbox://nbrown140.1okavhhf"
+  });
+  
+  map.addLayer({
+      "id": "buildings",
+      "type": "polygon",
+      "source": {
+          type: 'vector',
+          url: "mapbox://nbrown140.1okavhhf"
+      },
+      "source-layer": "contour",
+      "layout": {},
+      "paint": {
+          "line-color": "#ff69b4",
+          "line-width": 1
+      }
+  });
+                
+});
+  
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Add a vector tile source</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibmJyb3duMTQwIiwiYSI6ImNpeW9vNWt0MjAwNHYzM3FxZG1yaWdkdHkifQ.wgBlLBAl_ocIhssjRsvCEg';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v9',
+    zoom: 13,
+    center: [-122.447303, 37.753574]
+});
+
+map.on('load', function () {
+
+    map.addLayer({
+        "id": "terrain-data",
+        "type": "line",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://mapbox.mapbox-terrain-v2'
+        },
+        "source-layer": "contour",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#ff69b4",
+            "line-width": 1
+        }
+    });
 });
 </script>
 
