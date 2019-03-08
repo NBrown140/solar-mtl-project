@@ -23,25 +23,24 @@ var map = new mapboxgl.Map({
   zoom: 10.5
 });
   
-map.on('load', function() {
-  map.addSource("buildings",{
-    "type": "geojson",
-    "data": "mapbox://nbrown140.1okavhhf"
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['cartographie-base-2007-afnqya'] // replace this with the name of the layer
   });
-  
-  map.addLayer({
-      "id": "buildings",
-      "type": "polygon",
-      "source": {
-          type: 'vector',
-          url: "mapbox://nbrown140.1okavhhf"
-      },
-      "layout": {},
-      "paint": {
-          "line-color": "#69ffff",
-          "line-width": 4
-      }
-  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML( '<h3>Po!!!</h3>)  
+     //'<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
                 
 });
   
