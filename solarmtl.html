@@ -23,23 +23,28 @@ var map = new mapboxgl.Map({
   zoom: 10.5
 });
   
-map.on('click', function(e) {
-  var features = map.queryRenderedFeatures(e.point, {
-    layers: ['cartographie-base-2007-afnqya'] // replace this with the name of the layer
-  });
-
-  if (!features.length) {
-    return;
-  }
-
-  var feature = features[0];
-
-  var popup = new mapboxgl.Popup({ offset: [0, -15] })
-    .setLngLat(feature.geometry.coordinates)
-    .setHTML( '<h3>Po!!!</h3>')  
-    .setLngLat(feature.geometry.coordinates)
-    .addTo(map);
+map.on('mousemove', function (e) {
+var features = map.queryRenderedFeatures(e.point);
+document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
 });
+  
+// map.on('click', function(e) {
+//   var features = map.queryRenderedFeatures(e.point, {
+//     layers: ['cartographie-base-2007-afnqya'] // replace this with the name of the layer
+//   });
+
+//   if (!features.length) {
+//     return;
+//   }
+
+//   var feature = features[0];
+
+//   var popup = new mapboxgl.Popup({ offset: [0, -15] })
+//     .setLngLat(feature.geometry.coordinates)
+//     .setHTML( '<h3>Po!!!</h3>')  
+//     .setLngLat(feature.geometry.coordinates)
+//     .addTo(map);
+// });
                 
   
 </script>
