@@ -20,7 +20,7 @@
     .map-overlay { position: absolute; bottom: 0; right: 0; background: rgba(255, 255, 255, 0.8); margin-right: 20px; font-family: Arial, sans-serif; overflow: auto; border-radius: 3px; }
     #features { top: 0; height: 100px; margin-top: 200px; width: 150px; }
     #legend { padding: 10px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); line-height: 18px; margin-bottom: 300px; width: 100px; }
-    .legend-key { display: inline-block; border-radius: 20%; width: 10px; height: 10px; margin-right: 5px; }
+    .legend-key { display: inline-block; border-radius: 20%; width: 10px; height: 10px; margin-right: 5px; font-size: 1em;}
   </style>
 </head>
   
@@ -28,7 +28,7 @@
 
   <div id='map'></div>
   <div class='map-overlay' id='features'><h2>Montreal Rooftop Solar Potential</h2><div id='pd'><p>Hover over a roof!</p></div></div>
-  <div class='map-overlay' id='legend'><h3>Corrected Solar Irradiance (KWh m<sup>-2</sup>)</h3></div>
+  <div class='map-overlay' id='legend'><h3>Solar Irradiance (KWh m<sup>-2</sup>)</h3></div>
 
   <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoibmJyb3duMTQwIiwiYSI6ImNpeW9vNWt0MjAwNHYzM3FxZG1yaWdkdHkifQ.wgBlLBAl_ocIhssjRsvCEg';
@@ -45,8 +45,8 @@
   });
 
 
-  var layers = ['130', '500', '900', '1300', '1640'];
-  var colors = ['#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c'];
+  var layers = ['1640', '1300', '900', '500', '130'];
+  var colors = ['#d7191c', '#fdae61', '#ffffbf', '#abdda4', '#2b83ba'];
 
   // Add legend
   for (i = 0; i < layers.length; i++) {
