@@ -56,10 +56,11 @@ enableHighAccuracy: true
 trackUserLocation: true
 }));
 
+// Add fullscreen control
+map.addControl(new mapboxgl.FullscreenControl());
+
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
-
-map.addControl(new mapboxgl.FullscreenControl());
   
 </script>
 
