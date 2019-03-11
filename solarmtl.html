@@ -20,7 +20,8 @@
     .map-overlay { position: absolute; bottom: 0; right: 0; background: rgba(255, 255, 255, 0.8); margin-right: 20px; font-family: Arial, sans-serif; overflow: auto; border-radius: 3px; }
     #features { top: 0; height: 100px; margin-top: 200px; width: 150px; }
     #legend { padding: 10px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); line-height: 18px; margin-bottom: 300px; width: 100px; }
-    .legend-key { display: inline-block; border-radius: 20%; width: 10px; height: 10px; margin-right: 5px; font-size: 0.9em; font-weight: 700;}
+    .legend-key { display: inline-block; border-radius: 20%; width: 10px; height: 10px; margin-right: 5px; }
+    .legend-layer { font-size: 0.9em; font-weight: 700; }
   </style>
 </head>
   
@@ -58,6 +59,7 @@
     key.style.backgroundColor = color;
 
     var value = document.createElement('span');
+    value.className = 'legend-layer';
     value.innerHTML = layer;
     item.appendChild(key);
     item.appendChild(value);
