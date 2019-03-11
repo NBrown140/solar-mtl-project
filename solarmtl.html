@@ -44,27 +44,26 @@
   document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
   });
 
-  // map.on('click', function(e) {
-  //   var features = map.queryRenderedFeatures(e.point, {
-  //     layers: ['cartographie-base-2007-afnqya'] // replace this with the name of the layer
-  //   });
-
-  //   if (!features.length) {
-  //     return;
-  //   }
-
-  //   var feature = features[0];
-
-  //   var popup = new mapboxgl.Popup({ offset: [0, -15] })
-  //     .setLngLat(feature.geometry.coordinates)
-  //     .setHTML( '<h3>Po!!!</h3>')  
-  //     .setLngLat(feature.geometry.coordinates)
-  //     .addTo(map);
-  // });
 
   var layers = ['130', '500', '900', '1300', '1640'];
   var colors = ['#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c'];
 
+  // Add legend
+  for (i = 0; i < layers.length; i++) {
+    var layer = layers[i];
+    var color = colors[i];
+    var item = document.createElement('div');
+    var key = document.createElement('span');
+    key.className = 'legend-key';
+    key.style.backgroundColor = color;
+
+    var value = document.createElement('span');
+    value.innerHTML = layer;
+    item.appendChild(key);
+    item.appendChild(value);
+    legend.appendChild(item);
+  }
+    
   // Add geolocate control to the map.
   map.addControl(new mapboxgl.GeolocateControl({
   positionOptions: {
