@@ -47,7 +47,9 @@ document.getElementById('features').innerHTML = JSON.stringify(features, null, 2
 //     .addTo(map);
 // });
                 
-  
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
 </script>
 
 </body>
