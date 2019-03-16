@@ -29,7 +29,14 @@
 <body>
 
   <div id='map'></div>
-  <div class='map-overlay' id='features'><h2>Montreal Rooftop Solar Potential</h2><div id='pd'><p>Hover over a roof!</p></div></div>
+  <div class='map-overlay' id='features'>
+    <h2>Montreal Rooftop Solar Potential</h2>
+    <div id='pd'><p>Hover over a roof!</p></div>
+    Area: XXX
+    Size Class: XXX
+    Average Annual Irradiance: XXX
+    Irradiance Percentile: XXX
+  </div>
   <div class='map-overlay' id='legend'><h3>Irradiance <h4>(KWh m<sup>-2</sup>)</h4></h3></div>
 
   <script>
@@ -43,7 +50,7 @@
 
   map.on('mousemove', function (e) {
   var features = map.queryRenderedFeatures(e.point);
-  document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
+  document.getElementById('features').insertAdjacentHTML('beforeend', JSON.stringify(features, null, 2));
   });
 
 
