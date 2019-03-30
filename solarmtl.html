@@ -19,31 +19,39 @@
   <!-- For Interactive Sidebar Body-->
   <!-- https://stackoverflow.com/a/54749735 -->
 
-  <!-- <div id="mySidebar" class="sidebar">
+  <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    <h1>Solar Irradiance Map</h1>
+    <p>
+      This map represents the annual sum of solar energy hitting the surface of the city at a resolution of 50 cm.
+      This is measured in kWh / m<sup>2</sup> / yr.
+      The original lidar data used to build the map was acquired in 2015, therefore changes may have occured since then.
+      This map is intended to be used as a visually-pleasing tool to help residential and commercial building owners quickly
+      get a sense of their building's rooftop solar potential. As such, it is not specific to PV or thermal potential energy.
+      It is not intended to be a precise evaluation of rooftop solar potential. 
+      Keep in mind that flat roofs would necessiate mounts, which would incline the solar panels and make them receive
+      more energy than represented here.      
+    </p>
+    <div><hr></div>
+    <a href="about.html" target="_blank" rel="noopener noreferrer">About</a>
   </div>
 
 
   <div id="main">
     <button class="openbtn" onclick="openNav()">☰ MTL Solaire</button>  
-  <div id='map'></div>
   </div>
 
   <script>
-  function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-  }
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "300px";
+      document.getElementById("main").style.marginLeft = "300px";
+    }
 
-  function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-  }
-  </script> -->
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+  </script>
 
   <!--End Interactive Sidebar Body -->
 
@@ -66,8 +74,8 @@
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/nbrown140/cjjixunru3cg52spinroqkhpj',
-    center: [-73.671738, 45.556095],
-    zoom: 10.5
+    center: [-73.678473, 45.551983],
+    zoom: 10.15
   });
   // map.on('mousemove', function (e) {
   // var features = map.queryRenderedFeatures(e.point);

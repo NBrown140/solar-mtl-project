@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link href='about.css' rel='stylesheet' type="text/css"/>
+</head>
+<body>
+
+    <img src="imgs/sample_image.png" class="center" alt="sample img" width="610" height="412" style='border:1.5px solid #a0a0a0'>
+
+
+    <!-- ANGLAIS -->
+
+    <h1> Solar MTL</h1>
+
+    <p class="center">
+        This project...
+
+        Posters for sale!
+
+    </p>
+
+    <h2 class="center">Data</h2>
+    <p class="center">
+        This is the data
+    <a href="http://donnees.ville.montreal.qc.ca/dataset/lidar-aerien-2015" target="_blank" rel="noopener noreferrer">
+        Lidar Data
+    </a>
+    
+    </p>
+
+    <h2 class="center">Methodology</h2>
+    <p class="center">
+        The inital data was a series of laz lidar return files which were decompressed into las format.
+        Then, All the xyz point returns were binned into a DSM with 50cm horizontal resolution using the maximum
+        return value if multiple points were contained in a grid cell. The resulting DSM was too large to perform 
+        solar irradiance calculations on a consumer workstation, therefore it was manually divided into 30 regions, 
+        which made irradiance calculation possible over the course of a month.
+
+        Solar Irradiation module: <a href="http://www.saga-gis.org/saga_tool_doc/2.2.2/ta_lighting_2.html" target="_blank" rel="noopener noreferrer">
+            SAGA GIS Potential Incoming Solar Radiation
+        </a>
+    </p>
+
+
+    <hr>
+
+
+    <!-- FRANCAIS -->
+
+    <h1 class="center">MTL Solaire</h1>
+
+    <p class="center">
+        Ce projet...
+    </p>
+</body>
+</html>
